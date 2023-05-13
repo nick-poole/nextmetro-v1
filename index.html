@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextMetro</title>
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+
+  <body class="bg-gray-400">
+
+    <!-- Header -->
+    <header class="bg-red-600 text-white py-4">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-gray-400">
+          Next
+          <span class="text-white">M</span>
+          <span class="text-blue-600">etro</span>
+        </h1>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-hero bg-cover bg-center py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl backdrop-blur-s font-bold text-white ">Welcome to NextMetro</h2>
+        <p class="text-xl text-white mt-4">Get real-time train information for the Washington Metro system.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="bg-white">
+      <div class="container mx-auto px-4 py-8 bg-zinc-400">
+        <!-- Add your content here -->
+        <div class="flex flex-col items-center">
+          <p class="text-xl mb-2 ">Select a train station:</p>
+          <select class="px-4 py-2 border border-gray-300 rounded-md">
+            <option value="station1">Station 1</option>
+            <option value="station2">Station 2</option>
+            <option value="station3">Station 3</option>
+            <!-- Add more station options as needed -->
+          </select>
+
+          <!-- Display next train information -->
+          <div class="mt-4 p-4 bg-white rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-2">Next Train Information</h2>
+            <p class="text-lg">Train: Red Line</p>
+            <p class="text-lg">Destination: Union Station</p>
+            <p class="text-lg">Arrival Time: 10:15 AM</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white py-4">
+      <div class="container mx-auto px-4">
+        <p class="text-center">&copy; 2023 NextMetro. All rights reserved.</p>
+      </div>
+    </footer>
+
+  </body>
+
+</html>
