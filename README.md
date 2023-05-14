@@ -33,9 +33,18 @@ ___
 
 ___
 
-### 5/13/23
+### 5/14/23
 
-- CONFIGURE: Base layout for application
+- COMPLETE: Station list and integrate API using Fetch
+- Added a comprehensive list of WMATA stations in alphabetical order
+- Ensured the inclusion of the Potomac Yard station in the list
+- Created a select dropdown menu with the list of stations
+- Implemented an event handler to trigger functions on station selection
+- Utilized the Fetch API to retrieve train prediction data from the WMATA API
+- Processed the response data and displayed relevant train information
+- Updated the train information dynamically based on the selected station
+
+### 5/13/23
 
 - INSTALL: Tailwindcss && CONFIGURE: Base layout for application
 
