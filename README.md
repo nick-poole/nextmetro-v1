@@ -14,9 +14,8 @@ ___
 
 ## Technologies Used
 
-- Vue.js: Front-end JavaScript framework for building interactive user interfaces.
 - WMATA API: Integration with the WMATA API to retrieve real-time train data.
-- HTML/CSS: Markup and styling for the web app.
+- HTML/CSS/TailwindCSS: Markup and styling for the web app.
 - JavaScript: Programming language for implementing app logic and interactivity.
 
 ___
@@ -36,19 +35,22 @@ ___
 ### 5/14/23
 
 - REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
-
-```text
-If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins". For arrival times less than 2 minutes, we now show the value followed by "min" (e.g., "1 min"). For other arrival times, we display the value followed by "mins" (e.g., "5 mins"). 
-```
+   > If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins".
+   > 
+   > For arrival times less than 2 minutes, we now show the value followed by "min" (e.g., "1 min"). For other arrival times, we display the value followed by "mins" (e.g., "5 mins").
 
 - COMPLETE: Station list and integrate API using Fetch
-- Added a comprehensive list of WMATA stations in alphabetical order
-- Ensured the inclusion of the Potomac Yard station in the list
-- Created a select dropdown menu with the list of stations
-- Implemented an event handler to trigger functions on station selection
-- Utilized the Fetch API to retrieve train prediction data from the WMATA API
-- Processed the response data and displayed relevant train information
-- Updated the train information dynamically based on the selected station
+   > Created a select dropdown menu with the list of stations
+   > 
+   > Added a comprehensive list of WMATA stations in alphabetical order
+   > 
+   > Implemented an event handler to trigger functions on station selection
+   > 
+   > Utilized the Fetch API to retrieve train prediction data from the WMATA API
+   > 
+   > Processed the response data and displayed relevant train information
+   > 
+   > Updated the train information dynamically based on the selected station
 
 ### 5/13/23
 
