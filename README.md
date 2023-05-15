@@ -35,6 +35,15 @@ ___
 
 ### 5/14/23
 
+- ADD: Train car information to train display
+   >Updated the `updateTrainInfo()` function to include the number of train cars in the displayed train information.
+   >
+   >Modified the HTML template to include a new paragraph element showing the number of cars.
+   >
+   >Refactored the logic to use template literals for a cleaner and more readable code.
+   >
+   >Tested and verified the functionality with sample data.
+
 - REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
 
 ```text

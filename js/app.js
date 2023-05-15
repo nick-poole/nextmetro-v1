@@ -39,36 +39,38 @@ function updateTrainInfo(trains) {
 
         // Create HTML elements to display train information
         const trainInfoTitle = document.createElement("p");
-        trainInfoTitle.classList.add("text-xl");
-        trainInfoTitle.classList.add("font-semibold");
-        trainInfoTitle.classList.add("mb-2");
+        trainInfoTitle.classList.add("text-xl", "font-semibold", "mb-2");
         trainInfoTitle.textContent = "Next Train Information";
 
         const trainName = document.createElement("p");
         trainName.classList.add("text-lg");
-        trainName.textContent = "Train: " + train.Line;
+        trainName.textContent = `Train: ${train.Line}`;
 
         const destination = document.createElement("p");
         destination.classList.add("text-lg");
-        destination.textContent = "Destination: " + train.DestinationName;
+        destination.textContent = `Destination: ${train.DestinationName}`;
+
+        const trainCars = document.createElement("p");
+        trainCars.classList.add("text-lg");
+        trainCars.textContent = `Number of cars: ${train.Car}`;
 
         const arrivalTime = document.createElement("p");
         arrivalTime.classList.add("text-lg");
-        arrivalTime.textContent = "Arrival Time: " + train.Min + " min";
 
         if (train.Min.toLowerCase() === "brd") {
             arrivalTime.textContent = "Arrival Time: BOARDING";
         } else if (train.Min.toLowerCase() === "arr") {
             arrivalTime.textContent = "Arrival Time: ARRIVING";
         } else if (train.Min < 2) {
-            arrivalTime.textContent = "Arrival Time: " + train.Min + "min";
+            arrivalTime.textContent = `Arrival Time: ${train.Min} min`;
         } else {
-            arrivalTime.textContent = "Arrival Time: " + train.Min + " mins";
+            arrivalTime.textContent = `Arrival Time: ${train.Min} mins`;
         }
 
         // Append train information elements to the trainInfoDiv
         trainInfo.appendChild(trainName);
         trainInfo.appendChild(destination);
+        trainInfo.appendChild(trainCars);
         trainInfo.appendChild(arrivalTime);
     } else {
         // If no train predictions are available, display a message
@@ -79,3 +81,59 @@ function updateTrainInfo(trains) {
         trainInfo.appendChild(noTrainMessage);
     }
 }
+
+// function updateTrainInfo(trains) {
+//     const trainInfo = document.getElementById("trainInfo");
+//     // Clear existing train information
+//     trainInfo.innerHTML = "";
+//     // Check if there are any train predictions
+//     if (trains.length > 0) {
+//         const train = trains[0]; // Get the first train prediction
+
+//         // Create HTML elements to display train information
+//         const trainInfoTitle = document.createElement("p");
+//         trainInfoTitle.classList.add("text-xl");
+//         trainInfoTitle.classList.add("font-semibold");
+//         trainInfoTitle.classList.add("mb-2");
+//         trainInfoTitle.textContent = "Next Train Information";
+
+//         const trainName = document.createElement("p");
+//         trainName.classList.add("text-lg");
+//         trainName.textContent = "Train: " + train.Line;
+
+//         const destination = document.createElement("p");
+//         destination.classList.add("text-lg");
+//         destination.textContent = "Destination: " + train.DestinationName;
+
+//         const trainCars = document.createElement("p");
+//         trainCars.classList.add("text-lg");
+//         trainCars.textContent = "# of cars: " + train.Car;
+
+//         const arrivalTime = document.createElement("p");
+//         arrivalTime.classList.add("text-lg");
+//         arrivalTime.textContent = "Arrival Time: " + train.Min + " min";
+
+//         if (train.Min.toLowerCase() === "brd") {
+//             arrivalTime.textContent = "Arrival Time: BOARDING";
+//         } else if (train.Min.toLowerCase() === "arr") {
+//             arrivalTime.textContent = "Arrival Time: ARRIVING";
+//         } else if (train.Min < 2) {
+//             arrivalTime.textContent = "Arrival Time: " + train.Min + "min";
+//         } else {
+//             arrivalTime.textContent = "Arrival Time: " + train.Min + " mins";
+//         }
+
+//         // Append train information elements to the trainInfoDiv
+//         trainInfo.appendChild(trainName);
+//         trainInfo.appendChild(destination);
+//         trainInfo.appendChild(trainCars);
+//         trainInfo.appendChild(arrivalTime);
+//     } else {
+//         // If no train predictions are available, display a message
+//         const noTrainMessage = document.createElement("p");
+//         noTrainMessage.classList.add("text-lg");
+//         noTrainMessage.textContent = "No train predictions available.";
+
+//         trainInfo.appendChild(noTrainMessage);
+//     }
+// }
