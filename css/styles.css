@@ -53,3 +53,23 @@ img {
     background-size: cover;
     background-position: center;
 }
+
+.text-red {
+    color: red;
+}
+.text-green {
+    color: green;
+}
+.text-blue {
+    color: blue;
+}
+.text-yellow {
+    color: yellow;
+}
+.text-orange {
+    color: #cc5500;
+    //background-color: white;
+}
+.text-silver {
+    color: silver;
+}

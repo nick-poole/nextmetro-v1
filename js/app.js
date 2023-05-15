@@ -1,12 +1,14 @@
 function handleStationSelection() {
-    var selectedStation = document.getElementById("stationSelect").value;
-    console.log("Selected station:", selectedStation);
-    fetchTrainPredictions(selectedStation);
-    //updateTrainInfo();
+    var selectedStationCode = document.getElementById("stationSelect").value;
+    var selectedStationName = document.getElementById("stationSelect").selectedOptions[0].text;
+    console.log("Selected station:", selectedStationName);
+    console.log("Station code: ", selectedStationCode);
+    fetchTrainPredictions(selectedStationCode);
+    updateTrainInfo();
 }
 
-async function fetchTrainPredictions(stationCode) {
-    const url = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${stationCode}`;
+async function fetchTrainPredictions(selectedStationCode) {
+    const url = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${selectedStationCode}`;
     const apiKey = "739f8ef9f4b245e0ba1db37769ca303b";
     const headers = {
         api_key: apiKey,
@@ -44,7 +46,13 @@ function updateTrainInfo(trains) {
 
         const trainName = document.createElement("p");
         trainName.classList.add("text-lg");
-        trainName.textContent = `Train: ${train.Line}`;
+
+        const lineColorSpan = document.createElement("span");
+        lineColorSpan.classList.add(getLineColorClass(train.Line));
+        lineColorSpan.textContent = getLineName(train.Line);
+
+        trainName.textContent = "Line: ";
+        trainName.appendChild(lineColorSpan);
 
         const destination = document.createElement("p");
         destination.classList.add("text-lg");
@@ -82,58 +90,36 @@ function updateTrainInfo(trains) {
     }
 }
 
-// function updateTrainInfo(trains) {
-//     const trainInfo = document.getElementById("trainInfo");
-//     // Clear existing train information
-//     trainInfo.innerHTML = "";
-//     // Check if there are any train predictions
-//     if (trains.length > 0) {
-//         const train = trains[0]; // Get the first train prediction
+function getLineName(lineCode) {
+    switch (lineCode) {
+        case "RD":
+            return "RED";
+        case "GR":
+            return "GREEN";
+        case "BL":
+            return "BLUE";
+        case "YL":
+            return "YELLOW";
+        case "OR":
+            return "ORANGE";
+        case "SV":
+            return "SILVER";
+    }
+}
 
-//         // Create HTML elements to display train information
-//         const trainInfoTitle = document.createElement("p");
-//         trainInfoTitle.classList.add("text-xl");
-//         trainInfoTitle.classList.add("font-semibold");
-//         trainInfoTitle.classList.add("mb-2");
-//         trainInfoTitle.textContent = "Next Train Information";
-
-//         const trainName = document.createElement("p");
-//         trainName.classList.add("text-lg");
-//         trainName.textContent = "Train: " + train.Line;
-
-//         const destination = document.createElement("p");
-//         destination.classList.add("text-lg");
-//         destination.textContent = "Destination: " + train.DestinationName;
-
-//         const trainCars = document.createElement("p");
-//         trainCars.classList.add("text-lg");
-//         trainCars.textContent = "# of cars: " + train.Car;
-
-//         const arrivalTime = document.createElement("p");
-//         arrivalTime.classList.add("text-lg");
-//         arrivalTime.textContent = "Arrival Time: " + train.Min + " min";
-
-//         if (train.Min.toLowerCase() === "brd") {
-//             arrivalTime.textContent = "Arrival Time: BOARDING";
-//         } else if (train.Min.toLowerCase() === "arr") {
-//             arrivalTime.textContent = "Arrival Time: ARRIVING";
-//         } else if (train.Min < 2) {
-//             arrivalTime.textContent = "Arrival Time: " + train.Min + "min";
-//         } else {
-//             arrivalTime.textContent = "Arrival Time: " + train.Min + " mins";
-//         }
-
-//         // Append train information elements to the trainInfoDiv
-//         trainInfo.appendChild(trainName);
-//         trainInfo.appendChild(destination);
-//         trainInfo.appendChild(trainCars);
-//         trainInfo.appendChild(arrivalTime);
-//     } else {
-//         // If no train predictions are available, display a message
-//         const noTrainMessage = document.createElement("p");
-//         noTrainMessage.classList.add("text-lg");
-//         noTrainMessage.textContent = "No train predictions available.";
-
-//         trainInfo.appendChild(noTrainMessage);
-//     }
-// }
+function getLineColorClass(lineCode) {
+    switch (lineCode) {
+        case "RD":
+            return "text-red";
+        case "GR":
+            return "text-green";
+        case "BL":
+            return "text-blue";
+        case "YL":
+            return "text-yellow";
+        case "OR":
+            return "text-orange";
+        case "SV":
+            return "text-silver";
+    }
+}
