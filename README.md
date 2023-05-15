@@ -34,8 +34,19 @@ ___
 
 ### 5/14/23
 
+- ADD: Train car information to train display
+   >Updated the `updateTrainInfo()` function to include the number of train cars in the displayed train information.
+   >
+   >Modified the HTML template to include a new paragraph element showing the number of cars.
+   >
+   >Refactored the logic to use template literals for a cleaner and more readable code.
+   >
+   >Tested and verified the functionality with sample data.
+
 - REPLACE: Initial placeholder message in trainInfo div
    > Adds a placeholder message in the trainInfo div to indicate to the user that they need to select a station in order to view real-time train information.
+
+- REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
 
 - REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
    > If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins".
