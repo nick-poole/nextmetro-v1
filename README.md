@@ -35,11 +35,15 @@ ___
 
 ### 5/14/23
 
+- REPLACE: Initial placeholder message in trainInfo div
+   > Adds a placeholder message in the trainInfo div to indicate to the user that they need to select a station in order to view real-time train information.
+
 - REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
 
-```text
-If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins". For arrival times less than 2 minutes, we now show the value followed by "min" (e.g., "1 min"). For other arrival times, we display the value followed by "mins" (e.g., "5 mins"). 
-```
+> If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins".
+ > 
+ > For arrival times less than 2 minutes, we now show the value followed by "min" (e.g., "1 min"). For other arrival times, we display the value followed by "mins" (e.g., "5 mins").
+
 
 - COMPLETE: Station list and integrate API using Fetch
 - Added a comprehensive list of WMATA stations in alphabetical order
@@ -59,6 +63,10 @@ If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mi
 - Init Commit
 
 ___
+
+## Action Items
+
+1. Insure Potomac Yard station is include once operational on 05/19/23
 
 ## Contributions
 
