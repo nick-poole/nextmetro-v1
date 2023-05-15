@@ -35,6 +35,20 @@ ___
 
 ### 5/14/23
 
+- REFACTOR: Train information display and add line color styling.
+   >Updated the train information display to show the line color instead of "Train: Line Abbreviation"
+   >
+   > Implemented logic to display the line color in its respective color using Tailwind CSS utility classes
+   >
+   > Changed the background color of the trainInfo div to a darker shade `bg-gray-300` for orange/Yellow visibility
+   >
+   > Modified the `updateTrainInfo()` function to include the line color styling and display the train information accordingly
+   >
+   > Updated the `handleStationSelection()` function to log the selected station name and code
+   >
+   > Fixed the issue with the selected station code variable name in the `fetchTrainPredictions()` function
+   >
+
 - ADD: Train car information to train display
    >Updated the `updateTrainInfo()` function to include the number of train cars in the displayed train information.
    >
@@ -46,18 +60,8 @@ ___
 
 - REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
 
-```text
-If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins". For arrival times less than 2 minutes, we now show the value followed by "min" (e.g., "1 min"). For other arrival times, we display the value followed by "mins" (e.g., "5 mins"). 
-```
 
-- COMPLETE: Station list and integrate API using Fetch
-- Added a comprehensive list of WMATA stations in alphabetical order
-- Ensured the inclusion of the Potomac Yard station in the list
-- Created a select dropdown menu with the list of stations
-- Implemented an event handler to trigger functions on station selection
-- Utilized the Fetch API to retrieve train prediction data from the WMATA API
-- Processed the response data and displayed relevant train information
-- Updated the train information dynamically based on the selected station
+
 
 ### 5/13/23
 
