@@ -9,7 +9,7 @@ function handleStationSelection() {
 
 async function fetchTrainPredictions(selectedStationCode) {
     const url = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${selectedStationCode}`;
-    const apiKey = "739f8ef9f4b245e0ba1db37769ca303b";
+    const apiKey = "";
     const headers = {
         api_key: apiKey,
     };
