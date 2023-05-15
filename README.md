@@ -35,6 +35,12 @@ ___
 
 ### 5/14/23
 
+- REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
+
+```text
+If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins". For arrival times less than 2 minutes, we now show the value followed by "min" (e.g., "1 min"). For other arrival times, we display the value followed by "mins" (e.g., "5 mins"). 
+```
+
 - COMPLETE: Station list and integrate API using Fetch
 - Added a comprehensive list of WMATA stations in alphabetical order
 - Ensured the inclusion of the Potomac Yard station in the list

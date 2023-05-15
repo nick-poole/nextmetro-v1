@@ -7,7 +7,7 @@ function handleStationSelection() {
 
 async function fetchTrainPredictions(stationCode) {
     const url = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${stationCode}`;
-    const apiKey = "";
+    const apiKey = "739f8ef9f4b245e0ba1db37769ca303b";
     const headers = {
         api_key: apiKey,
     };
@@ -55,6 +55,16 @@ function updateTrainInfo(trains) {
         const arrivalTime = document.createElement("p");
         arrivalTime.classList.add("text-lg");
         arrivalTime.textContent = "Arrival Time: " + train.Min + " min";
+
+        if (train.Min.toLowerCase() === "brd") {
+            arrivalTime.textContent = "Arrival Time: BOARDING";
+        } else if (train.Min.toLowerCase() === "arr") {
+            arrivalTime.textContent = "Arrival Time: ARRIVING";
+        } else if (train.Min < 2) {
+            arrivalTime.textContent = "Arrival Time: " + train.Min + "min";
+        } else {
+            arrivalTime.textContent = "Arrival Time: " + train.Min + " mins";
+        }
 
         // Append train information elements to the trainInfoDiv
         trainInfo.appendChild(trainName);
