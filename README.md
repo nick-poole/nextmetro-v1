@@ -61,9 +61,22 @@ ___
    > Adds a placeholder message in the trainInfo div to indicate to the user that they need to select a station in order to view real-time train information.
 
 - REFACTOR: Train arrival time display and handle 'BOARDING' and 'ARRIVING' cases.
+   >If the train's arrival time is "brd", it now shows "BOARDING" instead of "brd mins". Similarly, if the arrival time is "arr", it displays "ARRIVING" instead of "arr mins".
+   >
+   >For arrival times less than 2 minutes, we now show the value followed by "min" (e.g., "1 min"). For other arrival times, we display the value followed by "mins" (e.g., "5 mins").
 
-
-
+- CREATE: Station list and integrate API using Fetch
+   >Added a comprehensive list of WMATA stations in alphabetical order
+   >
+   >Created a select dropdown menu with the list of stations
+   >
+   >Implemented an event handler to trigger functions on station selection
+   >
+   >Utilized the Fetch API to retrieve train prediction data from the WMATA API
+   >
+   >Processed the response data and displayed relevant train information
+   >
+   >Updated the train information dynamically based on the selected station
 
 ### 5/13/23
 
