@@ -1,26 +1,43 @@
 import { getLineName, getLineColorClass, getLineLogo } from "./maps.js";
 import { fetchStationTimes } from "./times.js";
 export { headers };
-const apiKey = "";
+const apiKey = "173992fa5e684b19b2018c9a497db626";
 const headers = {
     api_key: apiKey,
 };
+
+// Interval ID
+let refreshIntervalId;
 
 function handleStationSelection() {
     var selectedStationCode = document.getElementById("stationSelect").value;
     var selectedStationName = document.getElementById("stationSelect").selectedOptions[0].text;
     console.log("Selected station:", selectedStationName);
     console.log("Station code: ", selectedStationCode);
+
+    // ===== Last/First Train Times =====
     fetchStationTimes(selectedStationCode);
-    fetchTrainPredictions(selectedStationCode);
+
+    // Clear the previous interval
+    clearInterval(refreshIntervalId);
+
+    // Fetch train predictions and update train information
+    refreshTrainInfo(selectedStationCode);
+
+    // Sets new interval for refresh
+    refreshIntervalId = setInterval(() => {
+        console.log("REFRESH");
+        refreshTrainInfo(selectedStationCode);
+    }, 15000);
+    // ===== REAL-TIME REFRESH ===
 }
 
 // ===== Event Listener on #stationSelect
 const stationSelect = document.getElementById("stationSelect");
 stationSelect.addEventListener("change", handleStationSelection);
 
-// ==========  Train Predictions ========== //
-async function fetchTrainPredictions(selectedStationCode) {
+// ==========  Next Train Predictions ========== //
+async function refreshTrainInfo(selectedStationCode) {
     const url = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${selectedStationCode}`;
     const response = await fetch(url, { headers });
     try {

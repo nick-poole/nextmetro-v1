@@ -34,6 +34,11 @@ ___
 
 ### 5/16/23
 
+- FEAT: Added real-time train information refresh
+   >This enhancement provides users with up-to-date train predictions without the need to manually refresh the page.
+   >
+   >Introduces the functionality to fetch and display real-time train information for the selected station every 15 seconds.The handleStationSelection function now clears the previous interval, fetches the train predictions, and updates the train information.
+
 - STYLE: Train line logos to train information display
    >Adds functionality to display train line logos in the train information section.
    >
