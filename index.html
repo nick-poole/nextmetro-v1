@@ -12,6 +12,8 @@
 
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/css/styles.css">
+
+
   </head>
 
   <body class="bg-gray-400">
@@ -41,8 +43,7 @@
         <!-- Add your content here -->
         <div class="flex flex-col items-center">
           <p class="text-xl mb-2 ">Select a train station:</p>
-          <select class="px-4 py-2 border border-gray-300 rounded-md" id="stationSelect"
-            onchange="handleStationSelection()">
+          <select class="px-4 py-2 border border-gray-300 rounded-md" id="stationSelect">
             <option value="A01">Adams Morgan</option>
             <option value="C02">Addison Road</option>
             <option value="F09">Anacostia</option>
@@ -131,6 +132,12 @@
             <p class="text-lg">Select a station for real-time info</p>
 
           </div>
+
+          <div class="mt-4 p-4 bg-gray-300 rounded-lg shadow-md" id="stationTimes">
+            <h2 class="text-xl font-semibold mb-2">Station Times</h2>
+
+
+          </div>
         </div>
       </div>
     </main>
@@ -143,10 +150,9 @@
     </footer>
 
     <!-- app.js -->
-    <script src="/js/app.js"></script>
-
-
-
+    <script src="./js/app.js" type="module"></script>
+    <!-- times.js -->
+    <script src="./js/times.js" type="module"></script>
   </body>
 
 </html>
