@@ -1,21 +1,29 @@
+import { getLineName, getLineColorClass } from "./maps.js";
+import { fetchStationTimes } from "./times.js";
+export { headers };
+const apiKey = "04c9de6da7d141ca804fe22ea24bc1dd";
+const headers = {
+    api_key: apiKey,
+};
+
 function handleStationSelection() {
     var selectedStationCode = document.getElementById("stationSelect").value;
     var selectedStationName = document.getElementById("stationSelect").selectedOptions[0].text;
     console.log("Selected station:", selectedStationName);
     console.log("Station code: ", selectedStationCode);
+    fetchStationTimes(selectedStationCode);
     fetchTrainPredictions(selectedStationCode);
-    updateTrainInfo();
 }
 
+// ===== Event Listener on #stationSelect
+const stationSelect = document.getElementById("stationSelect");
+stationSelect.addEventListener("change", handleStationSelection);
+
+// ==========  Train Predictions ========== //
 async function fetchTrainPredictions(selectedStationCode) {
     const url = `https://api.wmata.com/StationPrediction.svc/json/GetPrediction/${selectedStationCode}`;
-    const apiKey = "739f8ef9f4b245e0ba1db37769ca303b";
-    const headers = {
-        api_key: apiKey,
-    };
-
+    const response = await fetch(url, { headers });
     try {
-        const response = await fetch(url, { headers });
         if (response.ok) {
             const data = await response.json();
             // Process the data and display the train predictions
@@ -87,39 +95,5 @@ function updateTrainInfo(trains) {
         noTrainMessage.textContent = "No train predictions available.";
 
         trainInfo.appendChild(noTrainMessage);
-    }
-}
-
-function getLineName(lineCode) {
-    switch (lineCode) {
-        case "RD":
-            return "RED";
-        case "GR":
-            return "GREEN";
-        case "BL":
-            return "BLUE";
-        case "YL":
-            return "YELLOW";
-        case "OR":
-            return "ORANGE";
-        case "SV":
-            return "SILVER";
-    }
-}
-
-function getLineColorClass(lineCode) {
-    switch (lineCode) {
-        case "RD":
-            return "text-red";
-        case "GR":
-            return "text-green";
-        case "BL":
-            return "text-blue";
-        case "YL":
-            return "text-yellow";
-        case "OR":
-            return "text-orange";
-        case "SV":
-            return "text-silver";
     }
 }

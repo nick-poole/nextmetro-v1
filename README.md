@@ -32,6 +32,23 @@ ___
 
 ___
 
+### 5/15/23
+
+- FEAT: Introduced async function for fetching station times
+   >Station Select now displays First/Last Train Time of Arrival
+   >
+   >Split JavaScript files into `time.js` and `maps.js`
+   >
+   >Moved station time-related code to time.js
+   >
+   >Separated mapping-related code to maps.js
+   >
+   >Refactor `updateStationTimes()` function to display train information in separate `<p>` tags
+   >
+   >Changed background-color to `#fff` on `.text-silver` color class
+   >
+   >Replaced `handleStationSelection` from index.html `onchange=""` with event listener in `app.js`
+
 ### 5/14/23
 
 - REFACTOR: Train information display and add line color styling.
