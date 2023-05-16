@@ -34,6 +34,11 @@ ___
 
 ### 5/16/23
 
+- STYLE: Train line logos to train information display
+   >Adds functionality to display train line logos in the train information section.
+   >
+   >The `getLineLogo` function is imported from `maps.js` and used in the `updateTrainInfo` function in `app.js`. The logos are dynamically fetched based on the train line code and displayed alongside the train information. This enhances the visual representation of train predictions and improves the overall user experience.
+
 - ITEGRATED: stationNameMap and Export to time.js
    >Integrates the stationNameMap(stationCode) function into the `maps.js` module to reduce reliance on an additional fetch request.
    >

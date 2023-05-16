@@ -54,6 +54,15 @@ img {
     background-position: center;
 }
 
+.line__logo-div {
+    max-height: 64px;
+    max-width: 64px;
+}
+
+/* .line__logo {
+    margin: 0 auto;
+} */
+
 .text-red {
     color: red;
 }

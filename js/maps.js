@@ -1,5 +1,5 @@
 // Export the mapping functions
-export { getLineName, getLineColorClass, stationNameMap };
+export { getLineName, getLineColorClass, stationNameMap, getLineLogo };
 
 function getLineName(lineCode) {
     switch (lineCode) {
@@ -34,6 +34,25 @@ function getLineColorClass(lineCode) {
             return "text-orange";
         case "SV":
             return "text-silver";
+    }
+}
+
+function getLineLogo(lineCode) {
+    switch (lineCode) {
+        case "RD":
+            return "/images/line-logos/512px-WMATA_Red.svg.png";
+        case "GR":
+            return "/images/line-logos/512px-WMATA_Green.svg.png";
+        case "BL":
+            return "/images/line-logos/512px-WMATA_Blue.svg.png";
+        case "YL":
+            return "/images/line-logos/512px-WMATA_Yellow.svg.png";
+        case "OR":
+            return "/images/line-logos/512px-WMATA_Orange.svg.png";
+        case "SV":
+            return "/images/line-logos/512px-WMATA_Silver.svg.png";
+        case "No":
+            return "/images/line-logos/512px-No-Passengers.png";
     }
 }
 

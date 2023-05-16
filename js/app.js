@@ -1,4 +1,4 @@
-import { getLineName, getLineColorClass } from "./maps.js";
+import { getLineName, getLineColorClass, getLineLogo } from "./maps.js";
 import { fetchStationTimes } from "./times.js";
 export { headers };
 const apiKey = "";
@@ -48,28 +48,44 @@ function updateTrainInfo(trains) {
         const train = trains[0]; // Get the first train prediction
 
         // Create HTML elements to display train information
+
+        // ===== Line Logo =====
+        const lineLogoDiv = document.createElement("div");
+        lineLogoDiv.classList.add("line__logo-div");
+
+        const lineLogo = document.createElement("img");
+        lineLogo.src = getLineLogo(train.Line);
+        lineLogo.alt = `${train.Line} Line Logo`;
+        lineLogo.classList.add("line-logo");
+        lineLogo.classList.add("line-logo");
+
+        // ===== Title =====
         const trainInfoTitle = document.createElement("p");
         trainInfoTitle.classList.add("text-xl", "font-semibold", "mb-2");
         trainInfoTitle.textContent = "Next Train Information";
 
+        // Train Line
         const trainName = document.createElement("p");
         trainName.classList.add("text-lg");
+        trainName.textContent = "Line: ";
 
+        // Text that appears in line color
         const lineColorSpan = document.createElement("span");
         lineColorSpan.classList.add(getLineColorClass(train.Line));
         lineColorSpan.textContent = getLineName(train.Line);
-
-        trainName.textContent = "Line: ";
         trainName.appendChild(lineColorSpan);
 
+        // ===== Destination =====
         const destination = document.createElement("p");
         destination.classList.add("text-lg");
         destination.textContent = `Destination: ${train.DestinationName}`;
 
+        // ===== # of Cars =====
         const trainCars = document.createElement("p");
         trainCars.classList.add("text-lg");
         trainCars.textContent = `Number of cars: ${train.Car}`;
 
+        // ===== Arrival Time =====
         const arrivalTime = document.createElement("p");
         arrivalTime.classList.add("text-lg");
 
@@ -82,6 +98,10 @@ function updateTrainInfo(trains) {
         } else {
             arrivalTime.textContent = `Arrival Time: ${train.Min} mins`;
         }
+
+        // append logo-div then logo inside logo div
+        trainInfo.appendChild(lineLogoDiv);
+        lineLogoDiv.appendChild(lineLogo);
 
         // Append train information elements to the trainInfoDiv
         trainInfo.appendChild(trainName);
