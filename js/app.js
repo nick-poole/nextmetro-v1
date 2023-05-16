@@ -1,7 +1,7 @@
 import { getLineName, getLineColorClass } from "./maps.js";
 import { fetchStationTimes } from "./times.js";
 export { headers };
-const apiKey = "04c9de6da7d141ca804fe22ea24bc1dd";
+const apiKey = "";
 const headers = {
     api_key: apiKey,
 };
