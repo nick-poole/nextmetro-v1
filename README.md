@@ -32,6 +32,15 @@ ___
 
 ___
 
+### 5/16/23
+
+- ITEGRATED: stationNameMap and Export to time.js
+   >Integrates the stationNameMap(stationCode) function into the `maps.js` module to reduce reliance on an additional fetch request.
+   >
+   > The stationNameMap function provides a mapping between station codes and their corresponding names.
+   >
+   > By incorporating this function into `maps.js` and exporting into `times.js`, we can directly retrieve station names without making an additional network request.This integration improves efficiency and reduces latency when accessing station information within the `time.js` module.
+
 ### 5/15/23
 
 - FEAT: Introduced async function for fetching station times
