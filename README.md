@@ -34,6 +34,8 @@ ___
 
 ### 5/17/23
 
+- INTRODUCED: Favicon to root and added links to header.
+
 - FEAT: Integrated Next3 capibilities and cross-referenced station names with station code values for accurate reporting
    >Provided more comprehensive and up-to-date information by enhancing the `updateTrainInfo` function to retrieve the next three train arrivals from the Next Trains API.
    >
