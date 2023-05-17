@@ -32,6 +32,15 @@ ___
 
 ___
 
+### 5/17/23
+
+- FEAT: Integrated Next3 capibilities and cross-referenced station names with station code values for accurate reporting
+   >Provided more comprehensive and up-to-date information by enhancing the `updateTrainInfo` function to retrieve the next three train arrivals from the Next Trains API.
+   >
+   >Fixed  value errors on `#stationSelect` list by cross-referencing the station names with their corresponding station code values to ensure accurate reporting. Corrections made to reflect up-to-date station names. Included Potomac Yard station and station code.
+   >
+   >Added additional station selects to handle transfer stations such as Metro Center, L'Enfant Plaza, Gallery Place, and Fort Totten. This ensures that the correct station code is fetched upon selection.
+
 ### 5/16/23
 
 - FEAT: Added real-time train information refresh
@@ -44,7 +53,7 @@ ___
    >
    >The `getLineLogo` function is imported from `maps.js` and used in the `updateTrainInfo` function in `app.js`. The logos are dynamically fetched based on the train line code and displayed alongside the train information. This enhances the visual representation of train predictions and improves the overall user experience.
 
-- ITEGRATED: stationNameMap and Export to time.js
+- INTEGRATED: stationNameMap and Export to time.js
    >Integrates the stationNameMap(stationCode) function into the `maps.js` module to reduce reliance on an additional fetch request.
    >
    > The stationNameMap function provides a mapping between station codes and their corresponding names.

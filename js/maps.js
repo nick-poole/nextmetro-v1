@@ -81,7 +81,7 @@ function stationNameMap(stationCode) {
         case "A11":
             return "Grosvenor-Strathmore";
         case "A12":
-            return "White Flint";
+            return "North Bethesda-White Flint";
         case "A13":
             return "Twinbrook";
         case "A14":
@@ -113,30 +113,34 @@ function stationNameMap(stationCode) {
         case "B35":
             return "NoMa-Gallaudet U";
         case "C01":
-            return "McPherson Square";
+            return "Metro Center (BL,OR,SV)";
         case "C02":
-            return "Farragut West";
+            return "McPherson Square";
         case "C03":
-            return "Foggy Bottom-GWU";
+            return "Farragut West";
         case "C04":
-            return "Rosslyn";
+            return "Foggy Bottom-GWU";
         case "C05":
-            return "Arlington Cemetery";
+            return "Rosslyn";
         case "C06":
-            return "Pentagon";
+            return "Arlington Cemetery";
         case "C07":
-            return "Pentagon City";
+            return "Pentagon";
         case "C08":
-            return "Crystal City";
+            return "Pentagon City";
         case "C09":
-            return "Ronald Reagan Washington National Airport";
+            return "Crystal City";
         case "C10":
-            return "Braddock Road";
+            return "Ronald Reagan Washington National Airport";
+        case "C11":
+            return "Potomac Yard";
         case "C12":
-            return "King St-Old Town";
+            return "Braddock Road";
         case "C13":
-            return "Eisenhower Avenue";
+            return "King St-Old Town";
         case "C14":
+            return "Eisenhower Avenue";
+        case "C15":
             return "Huntington";
         case "D01":
             return "Federal Triangle";
@@ -216,6 +220,22 @@ function stationNameMap(stationCode) {
             return "Morgan Boulevard";
         case "G05":
             return "Largo Town Center";
+        case "K01":
+            return "Court House";
+        case "K02":
+            return "Clarendon";
+        case "K03":
+            return "Virginia Square-GMU";
+        case "K04":
+            return "Ballston-MU";
+        case "K05":
+            return "East Falls Church";
+        case "K06":
+            return "West Falls Church";
+        case "K07":
+            return "Dunn Loring-Merrifield";
+        case "K08":
+            return "Vienna/Farfax-GMU";
         case "N01":
             return "McLean";
         case "N02":
@@ -226,23 +246,34 @@ function stationNameMap(stationCode) {
             return "Spring Hill";
         case "N06":
             return "Wiehle-Reston East";
-        case "S01":
-            return "Franconia-Springfield";
-        case "S02":
+        case "N07":
+            return "Reston Town Center";
+        case "N08":
+            return "Herndon";
+        case "N09":
+            return "Innovation Center";
+        case "N10":
+            return "Dulles";
+        case "N11":
+            return "Loudon Gateway";
+        case "N12":
+            return "Ashburn";
+        case "J02":
             return "Van Dorn Street";
+        case "J03":
+            return "Franconia-Springfield";
         case "S04":
             return "King St-Old Town";
         case "S09":
             return "Braddock Road";
         case "S10":
-            return "Ronald Reagan Washington National Airport";
+            return "DCA-National Airport";
         case "S12":
             return "Crystal City";
         case "S13":
             return "Pentagon City";
         case "S14":
             return "Pentagon";
-
         default:
             return "Unknown Station";
     }
