@@ -1,10 +1,34 @@
-import { getLineName, getLineColorClass, getLineLogo } from "./maps.js";
+import { randomHeroBackground, getLineName, getLineLogo } from "./maps.js";
 import { fetchStationTimes } from "./times.js";
 export { headers };
 const apiKey = "173992fa5e684b19b2018c9a497db626";
 const headers = {
     api_key: apiKey,
 };
+
+// Random Hero Image
+window.addEventListener("DOMContentLoaded", function () {
+    const heroSection = document.getElementById("heroSection");
+    const backgrounds = [
+        "../images/chris-grafton.jpg",
+        "../images/yuvraj-singh.jpg",
+        "../images/tatiana-rodriguez.jpg",
+        "../images/sara-cottle.jpg",
+        "../images/rosie-kerr.jpg",
+        "../images/julian-lozano.jpg",
+        "../images/matthew-bornhorst.jpg",
+        "../images/andrew-wagner.jpg",
+        "../images/sam-jotham-sutharson.jpg",
+        "../images/maria-oswalt.jpg",
+        "../images/maria-oswalt-2.jpg",
+        "../images/island-cinematics.jpg",
+        "../images/island-cinematics-2.jpg",
+        "../images/eleven-photographs.jpg",
+        "../images/eleven-photographs-2.jpg",
+    ];
+    const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    heroSection.style.backgroundImage = `url(${randomBackground})`;
+});
 
 // Interval ID
 let refreshIntervalId;
@@ -14,6 +38,9 @@ function handleStationSelection() {
     var selectedStationName = document.getElementById("stationSelect").selectedOptions[0].text;
     console.log("Selected station:", selectedStationName);
     console.log("Station code: ", selectedStationCode);
+
+    // Transitions Hero Background
+    randomHeroBackground();
 
     // ===== Last/First Train Times =====
     fetchStationTimes(selectedStationCode);
@@ -67,6 +94,20 @@ function updateTrainInfo(trains) {
         for (let i = 0; i < Math.min(3, trains.length); i++) {
             const train = trains[i]; // Get the train prediction
 
+            // Create a new div for each train
+            const trainDiv = document.createElement("div");
+            trainDiv.classList.add(
+                "train",
+                "w-96",
+                "my-3",
+                "flex",
+                "flex-col",
+                "items-center",
+                "bg-gray-200",
+                "rounded-lg",
+                "shadow-md"
+            );
+
             // Create HTML elements to display train information for each train
             // ===== Line Logo =====
             const lineLogoDiv = document.createElement("div");
@@ -79,53 +120,102 @@ function updateTrainInfo(trains) {
             lineLogo.classList.add("line-logo");
 
             // ===== Title =====
-            const trainInfoTitle = document.createElement("p");
+            const trainInfoTitle = document.createElement("h1");
             trainInfoTitle.classList.add("text-xl", "font-semibold", "mb-2");
             trainInfoTitle.textContent = "Next Metro";
 
             // Train Line
-            const trainName = document.createElement("p");
-            trainName.classList.add("text-lg");
-            trainName.textContent = `Train ${i + 1} Line: `;
+            const lineSpan = document.createElement("span");
+            lineSpan.textContent = "Line:";
+
+            const lineTicker = document.createElement("div");
+            lineTicker.classList.add(
+                "text-lg",
+                "w-fit",
+                "px-3",
+                "rounded-full",
+                "text-orange-500",
+                "bg-black",
+                "my-2"
+            );
 
             // Text that appears in line color
             const lineColorSpan = document.createElement("span");
-            lineColorSpan.classList.add(getLineColorClass(train.Line));
             lineColorSpan.textContent = getLineName(train.Line);
-            trainName.appendChild(lineColorSpan);
+            lineTicker.appendChild(lineColorSpan);
 
             // ===== Destination =====
-            const destination = document.createElement("p");
-            destination.classList.add("text-lg");
-            destination.textContent = `Destination: ${train.DestinationName}`;
+            const destinationSpan = document.createElement("span");
+            destinationSpan.textContent = "Destination:";
+
+            const destinationTicker = document.createElement("div");
+            destinationTicker.classList.add(
+                "text-lg",
+                "w-fit",
+                "px-3",
+                "rounded-full",
+                "text-orange-500",
+                "bg-black",
+                "my-2"
+            );
+            destinationTicker.textContent = train.DestinationName;
 
             // ===== # of Cars =====
-            const trainCars = document.createElement("p");
-            trainCars.classList.add("text-lg");
-            trainCars.textContent = `Number of cars: ${train.Car}`;
+            const carSpan = document.createElement("span");
+            carSpan.textContent = "# of cars:";
+
+            const carTicker = document.createElement("div");
+            carTicker.classList.add(
+                "text-lg",
+                "w-fit",
+                "px-3",
+                "rounded-full",
+                "text-orange-500",
+                "bg-black",
+                "my-2"
+            );
+            carTicker.textContent = train.Car;
 
             // ===== Arrival Time =====
-            const arrivalTime = document.createElement("p");
-            arrivalTime.classList.add("text-lg");
+            const arrivalSpan = document.createElement("span");
+            arrivalSpan.textContent = "Arrival Time";
+
+            const arrivalTime = document.createElement("div");
+            arrivalTime.classList.add(
+                "text-lg",
+                "w-fit",
+                "px-3",
+                "rounded-full",
+                "text-orange-500",
+                "bg-black",
+                "my-2"
+            );
 
             if (train.Min.toLowerCase() === "brd") {
-                arrivalTime.textContent = "Arrival Time: BOARDING";
+                arrivalTime.textContent = "BOARDING";
             } else if (train.Min.toLowerCase() === "arr") {
-                arrivalTime.textContent = "Arrival Time: ARRIVING";
+                arrivalTime.textContent = "ARRIVING";
             } else if (train.Min < 2) {
-                arrivalTime.textContent = `Arrival Time: ${train.Min} min`;
+                arrivalTime.textContent = `ETA: ${train.Min} min`;
             } else {
-                arrivalTime.textContent = `Arrival Time: ${train.Min} mins`;
+                arrivalTime.textContent = `ETA: ${train.Min} mins`;
             }
 
-            // Append train information elements to the trainInfoDiv
-            trainInfo.appendChild(lineLogoDiv);
+            // Append train information elements to the trainDiv
+            trainDiv.appendChild(lineLogoDiv);
             lineLogoDiv.appendChild(lineLogo);
-            trainInfo.appendChild(trainInfoTitle);
-            trainInfo.appendChild(trainName);
-            trainInfo.appendChild(destination);
-            trainInfo.appendChild(trainCars);
-            trainInfo.appendChild(arrivalTime);
+            trainDiv.appendChild(trainInfoTitle);
+            trainDiv.appendChild(lineSpan);
+            trainDiv.appendChild(lineTicker);
+            trainDiv.appendChild(destinationSpan);
+            trainDiv.appendChild(destinationTicker);
+            trainDiv.appendChild(carSpan);
+            trainDiv.appendChild(carTicker);
+            trainDiv.appendChild(arrivalSpan);
+            trainDiv.appendChild(arrivalTime);
+
+            // Append the trainDiv to the trainInfo div
+            trainInfo.appendChild(trainDiv);
         }
     } else {
         // If no train predictions are available, display a message
@@ -136,84 +226,3 @@ function updateTrainInfo(trains) {
         trainInfo.appendChild(noTrainMessage);
     }
 }
-
-// function updateTrainInfo(trains) {
-//     const trainInfo = document.getElementById("trainInfo");
-//     // Clear existing train information
-//     trainInfo.innerHTML = "";
-//     // Check if there are any train predictions
-//     if (trains.length > 0) {
-//         // Loop through the first three train predictions or the available trains
-//         for (let i = 0; i < Math.min(3, trains.length); i++) {
-//         const train = trains[i]; // Get the train prediction
-
-//         // Create HTML elements to display train information
-
-//         // ===== Line Logo =====
-//         const lineLogoDiv = document.createElement("div");
-//         lineLogoDiv.classList.add("line__logo-div");
-
-//         const lineLogo = document.createElement("img");
-//         lineLogo.src = getLineLogo(train.Line);
-//         lineLogo.alt = `${train.Line} Line Logo`;
-//         lineLogo.classList.add("line-logo");
-//         lineLogo.classList.add("line-logo");
-
-//         // ===== Title =====
-//         const trainInfoTitle = document.createElement("p");
-//         trainInfoTitle.classList.add("text-xl", "font-semibold", "mb-2");
-//         trainInfoTitle.textContent = "Next Train Information";
-
-//         // Train Line
-//         const trainName = document.createElement("p");
-//         trainName.classList.add("text-lg");
-//         trainName.textContent = "Line: ";
-
-//         // Text that appears in line color
-//         const lineColorSpan = document.createElement("span");
-//         lineColorSpan.classList.add(getLineColorClass(train.Line));
-//         lineColorSpan.textContent = getLineName(train.Line);
-//         trainName.appendChild(lineColorSpan);
-
-//         // ===== Destination =====
-//         const destination = document.createElement("p");
-//         destination.classList.add("text-lg");
-//         destination.textContent = `Destination: ${train.DestinationName}`;
-
-//         // ===== # of Cars =====
-//         const trainCars = document.createElement("p");
-//         trainCars.classList.add("text-lg");
-//         trainCars.textContent = `Number of cars: ${train.Car}`;
-
-//         // ===== Arrival Time =====
-//         const arrivalTime = document.createElement("p");
-//         arrivalTime.classList.add("text-lg");
-
-//         if (train.Min.toLowerCase() === "brd") {
-//             arrivalTime.textContent = "Arrival Time: BOARDING";
-//         } else if (train.Min.toLowerCase() === "arr") {
-//             arrivalTime.textContent = "Arrival Time: ARRIVING";
-//         } else if (train.Min < 2) {
-//             arrivalTime.textContent = `Arrival Time: ${train.Min} min`;
-//         } else {
-//             arrivalTime.textContent = `Arrival Time: ${train.Min} mins`;
-//         }
-
-//         // append logo-div then logo inside logo div
-//         trainInfo.appendChild(lineLogoDiv);
-//         lineLogoDiv.appendChild(lineLogo);
-
-//         // Append train information elements to the trainInfoDiv
-//         trainInfo.appendChild(trainName);
-//         trainInfo.appendChild(destination);
-//         trainInfo.appendChild(trainCars);
-//         trainInfo.appendChild(arrivalTime);
-//     } else {
-//         // If no train predictions are available, display a message
-//         const noTrainMessage = document.createElement("p");
-//         noTrainMessage.classList.add("text-lg");
-//         noTrainMessage.textContent = "No train predictions available.";
-
-//         trainInfo.appendChild(noTrainMessage);
-//     }
-// }

@@ -1,5 +1,35 @@
 // Export the mapping functions
-export { getLineName, getLineColorClass, stationNameMap, getLineLogo };
+export { randomHeroBackground, getLineName, stationNameMap, getLineLogo };
+
+const backgrounds = [
+    "../images/chris-grafton.jpg",
+    "../images/yuvraj-singh.jpg",
+    "../images/tatiana-rodriguez.jpg",
+    "../images/sara-cottle.jpg",
+    "../images/rosie-kerr.jpg",
+    "../images/julian-lozano.jpg",
+    "../images/matthew-bornhorst.jpg",
+    "../images/andrew-wagner.jpg",
+    "../images/sam-jotham-sutharson.jpg",
+    "../images/maria-oswalt.jpg",
+    "../images/maria-oswalt-2.jpg",
+    "../images/island-cinematics.jpg",
+    "../images/island-cinematics-2.jpg",
+    "../images/eleven-photographs.jpg",
+    "../images/eleven-photographs-2.jpg",
+];
+
+function randomHeroBackground() {
+    // Randomly select a background image
+    const randomIndex = Math.floor(Math.random() * backgrounds.length);
+    const selectedBackground = backgrounds[randomIndex];
+
+    // Apply the selected background to the hero section with a transition effect
+    const heroSection = document.querySelector(".bg-hero");
+    heroSection.classList.remove("transition-none"); // Remove the existing transition class
+    heroSection.style.backgroundImage = `url(${selectedBackground})`;
+    heroSection.classList.add("transition-all", "duration-500"); // Apply the transition classes
+}
 
 function getLineName(lineCode) {
     switch (lineCode) {
@@ -17,23 +47,6 @@ function getLineName(lineCode) {
             return "SILVER";
         case "No":
             return "NO PASSENGERS";
-    }
-}
-
-function getLineColorClass(lineCode) {
-    switch (lineCode) {
-        case "RD":
-            return "text-red";
-        case "GR":
-            return "text-green";
-        case "BL":
-            return "text-blue";
-        case "YL":
-            return "text-yellow";
-        case "OR":
-            return "text-orange";
-        case "SV":
-            return "text-silver";
     }
 }
 

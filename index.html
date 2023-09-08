@@ -17,15 +17,16 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet"> -->
 
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/css/styles.css">
   </head>
 
-  <body class="bg-gray-400">
+  <body class="bg-slate-500">
     <!-- Header -->
-    <header class="bg-red-600 text-white py-4 header">
+    <header class="bg-zinc-500 text-white py-4 header">
       <div class="container mx-auto px-4">
         <h1 class="text-4xl font-bold text-gray-400">
           Next
@@ -36,9 +37,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-hero bg-cover bg-center py-16">
-      <div class="container mx-auto px-4">
-        <div class="backdrop-filter backdrop-blur-sm backdrop-opacity-50 py-8 px-6">
+    <section id="heroSection" class="bg-hero bg-cover bg-center py-16 ">
+      <div class="container mx-auto px-4 backdrop-filter backdrop-brightness-50">
+        <div class=" py-8 px-6">
           <h2 class="text-4xl font-bold text-white">Welcome to NextMetro</h2>
           <p class="text-xl text-white mt-4">Get real-time train information for the Washington Metro system.</p>
         </div>
@@ -157,7 +158,8 @@
           </select>
 
           <!-- Display next train information -->
-          <div class="mt-4 p-4 bg-gray-300 rounded-lg shadow-md" id="trainInfo">
+          <div class="mt-4 p-4 w-96 bg-zinc-400 flex
+          flex-col items-center" id="trainInfo">
             <h2 class="text-xl font-semibold mb-2">Next Train Information</h2>
             <p class="text-lg">Select a station for real-time info</p>
           </div>
