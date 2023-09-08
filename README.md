@@ -34,6 +34,8 @@ ___
 
 ### 9/7/23
 
+- FEAT(main): Alter color scheme to Black/Orange and adjust border radius
+
 - FIX(main): Reconfigured dependencies for most recent Tailwind version(3.3.3)
 
 ### 5/17/23
