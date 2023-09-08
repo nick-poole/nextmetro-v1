@@ -10,21 +10,21 @@ const headers = {
 window.addEventListener("DOMContentLoaded", function () {
     const heroSection = document.getElementById("heroSection");
     const backgrounds = [
-        "../images/chris-grafton.jpg",
-        "../images/yuvraj-singh.jpg",
-        "../images/tatiana-rodriguez.jpg",
-        "../images/sara-cottle.jpg",
-        "../images/rosie-kerr.jpg",
-        "../images/julian-lozano.jpg",
-        "../images/matthew-bornhorst.jpg",
-        "../images/andrew-wagner.jpg",
-        "../images/sam-jotham-sutharson.jpg",
-        "../images/maria-oswalt.jpg",
-        "../images/maria-oswalt-2.jpg",
-        "../images/island-cinematics.jpg",
-        "../images/island-cinematics-2.jpg",
-        "../images/eleven-photographs.jpg",
-        "../images/eleven-photographs-2.jpg",
+        "images/chris-grafton.jpg",
+        "images/yuvraj-singh.jpg",
+        "images/tatiana-rodriguez.jpg",
+        "images/sara-cottle.jpg",
+        "images/rosie-kerr.jpg",
+        "images/julian-lozano.jpg",
+        "images/matthew-bornhorst.jpg",
+        "images/andrew-wagner.jpg",
+        "images/sam-jotham-sutharson.jpg",
+        "images/maria-oswalt.jpg",
+        "images/maria-oswalt-2.jpg",
+        "images/island-cinematics.jpg",
+        "images/island-cinematics-2.jpg",
+        "images/eleven-photographs.jpg",
+        "images/eleven-photographs-2.jpg",
     ];
     const randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
     heroSection.style.backgroundImage = `url(${randomBackground})`;

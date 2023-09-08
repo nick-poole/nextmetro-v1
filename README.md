@@ -32,6 +32,10 @@ ___
 
 ___
 
+### 9/7/23
+
+- FIX(main): Reconfigured dependencies for most recent Tailwind version(3.3.3)
+
 ### 5/17/23
 
 - INTRODUCED: Favicon to root and added links to header.

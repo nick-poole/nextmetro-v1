@@ -1,90 +1,76 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Box sizing */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+@layer base {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
-/* Remove default margin and padding */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul,
-ol,
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-    margin: 0;
-    padding: 0;
-}
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    li,
+    figure,
+    figcaption,
+    blockquote,
+    dl,
+    dd {
+        margin: 0;
+        padding: 0;
+    }
 
-/* Remove list styles */
-ul,
-ol {
-    list-style: none;
-}
+    ul,
+    ol {
+        list-style: none;
+    }
 
-/* Typography */
-/* body {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-} */
-
-/* Set images to be responsive */
-img {
-    max-width: 100%;
-    height: auto;
-}
-.bg-hero {
-    background-image: url("/images/rosie-kerr-greenbelt.jpg");
-    background-size: cover;
-    background-position: center;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
-.line__logo-div {
-    max-height: 64px;
-    max-width: 64px;
+@layer components {
+    .bg-hero {
+        background-image: url("/images/rosie-kerr-greenbelt.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .line__logo-div {
+        max-height: 64px;
+        max-width: 64px;
+    }
 }
 
-/* .line__logo {
-    margin: 0 auto;
-} */
-
-.text-red {
-    color: red;
-}
-.text-green {
-    color: green;
-}
-.text-blue {
-    color: blue;
-}
-.text-yellow {
-    color: yellow;
-}
-.text-orange {
-    color: #cc5500;
-    //background-color: white;
-}
-.text-silver {
-    color: silver;
-    background-color: #fff;
-}
-
-
-.ticker {
-    b
+@layer utilities {
+    .text-red {
+        color: red;
+    }
+    .text-green {
+        color: green;
+    }
+    .text-blue {
+        color: blue;
+    }
+    .text-yellow {
+        color: yellow;
+    }
+    .text-orange {
+        color: #cc5500;
+    }
+    .text-silver {
+        color: silver;
+        background-color: #fff;
+    }
 }
