@@ -87,6 +87,7 @@ function updateTrainInfo(trains) {
     const trainInfo = document.getElementById("trainInfo");
     // Clear existing train information
     trainInfo.innerHTML = "";
+    trainInfo.classList = "flex flex-col justify-between";
 
     // Check if there are any train predictions
     if (trains.length > 0) {
@@ -99,7 +100,7 @@ function updateTrainInfo(trains) {
             trainDiv.classList.add(
                 "train",
                 "w-96",
-                "my-3",
+                "my-2",
                 "flex",
                 "flex-col",
                 "items-center",
@@ -111,7 +112,7 @@ function updateTrainInfo(trains) {
             // Create HTML elements to display train information for each train
             // ===== Line Logo =====
             const lineLogoDiv = document.createElement("div");
-            lineLogoDiv.classList.add("line__logo-div");
+            lineLogoDiv.classList.add("line__logo-div", "mt-4");
 
             const lineLogo = document.createElement("img");
             lineLogo.src = getLineLogo(train.Line);
@@ -121,7 +122,7 @@ function updateTrainInfo(trains) {
 
             // ===== Title =====
             const trainInfoTitle = document.createElement("h1");
-            trainInfoTitle.classList.add("text-xl", "font-semibold", "mb-2");
+            trainInfoTitle.classList.add("text-xl", "font-semibold", "mt-4", "mb-2");
             trainInfoTitle.textContent = "Next Metro";
 
             // Train Line
@@ -136,7 +137,7 @@ function updateTrainInfo(trains) {
                 "rounded-full",
                 "text-orange-500",
                 "bg-black",
-                "my-2"
+                "my-4"
             );
 
             // Text that appears in line color
@@ -156,7 +157,7 @@ function updateTrainInfo(trains) {
                 "rounded-full",
                 "text-orange-500",
                 "bg-black",
-                "my-2"
+                "my-4"
             );
             destinationTicker.textContent = train.DestinationName;
 
@@ -172,7 +173,7 @@ function updateTrainInfo(trains) {
                 "rounded-full",
                 "text-orange-500",
                 "bg-black",
-                "my-2"
+                "my-4"
             );
             carTicker.textContent = train.Car;
 
@@ -188,7 +189,7 @@ function updateTrainInfo(trains) {
                 "rounded-full",
                 "text-orange-500",
                 "bg-black",
-                "my-2"
+                "my-4"
             );
 
             if (train.Min.toLowerCase() === "brd") {

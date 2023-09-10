@@ -32,6 +32,10 @@ ___
 
 ___
 
+### 9/10/23
+
+- FIX(main): Resolved trainDiv spacing issue by rebuilding tailwind with reset css for margin and padding excluded.
+
 ### 9/7/23
 
 - FEAT(main): Alter color scheme to Black/Orange and adjust border radius

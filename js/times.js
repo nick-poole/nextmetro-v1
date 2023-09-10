@@ -67,7 +67,11 @@ async function updateStationTimes(stationTimes) {
     ];
 
     const nextDayStationTimes = stationTime[nextDay];
-    if (nextDayStationTimes) {
+    if (
+        nextDayStationTimes &&
+        nextDayStationTimes.FirstTrains &&
+        nextDayStationTimes.FirstTrains.length > 0
+    ) {
         const firstTrainTomorrow = nextDayStationTimes.FirstTrains[0];
         const firstTrainDestinationCode = firstTrainTomorrow.DestinationStation;
         const firstTrainDestinationName = stationNameMap(firstTrainDestinationCode) || "Unknown";

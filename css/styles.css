@@ -9,7 +9,7 @@
         box-sizing: border-box;
     }
 
-    body,
+    /* body,
     h1,
     h2,
     h3,
@@ -28,11 +28,10 @@
         margin: 0;
         padding: 0;
     }
-
     ul,
     ol {
         list-style: none;
-    }
+    } */
 
     img {
         max-width: 100%;
