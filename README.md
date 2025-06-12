@@ -32,6 +32,10 @@ ___
 
 ___
 
+### 6/11/25
+
+- Repo changed to nextmetro-v1
+
 ### 9/10/23
 
 - FIX(main): Resolved trainDiv spacing issue by rebuilding tailwind with reset css for margin and padding excluded.
@@ -46,7 +50,7 @@ ___
 
 - INTRODUCED: Favicon to root and added links to header.
 
-- FEAT: Integrated Next3 capibilities and cross-referenced station names with station code values for accurate reporting
+- FEAT: Integrated Next3 capabilities and cross-referenced station names with station code values for accurate reporting
    >Provided more comprehensive and up-to-date information by enhancing the `updateTrainInfo` function to retrieve the next three train arrivals from the Next Trains API.
    >
    >Fixed  value errors on `#stationSelect` list by cross-referencing the station names with their corresponding station code values to ensure accurate reporting. Corrections made to reflect up-to-date station names. Included Potomac Yard station and station code.
